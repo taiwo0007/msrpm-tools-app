@@ -1,0 +1,15 @@
+<div class="w-full ">
+  <div class="w-full flex justify-end">
+    <button  *ngIf="!copied" class="border rounded mb-2 text-end ml-auto p-3 px-4" (click)="copyToClipboard(textareaRef)">Copy<i class="fa fa-clone ml-2" aria-hidden="true"></i>
+    </button>
+    <button *ngIf="copied" class="border rounded mb-2 text-end ml-auto p-3 px-4 bg-blue-700 text-white" >Copied<i class="fa fa-check ml-2" aria-hidden="true"></i>
+    </button>
+  </div>
+  <mat-form-field  class="example-full-width w-full" appearance="outline">
+    <mat-label>output</mat-label>
+    <textarea #textareaRef  style=" height: 15rem !important;" [innerHTML]="formattedText" name="input" matInput placeholder="Ex. It makes me feel..."></textarea>
+  </mat-form-field>
+
+</div>
+
+

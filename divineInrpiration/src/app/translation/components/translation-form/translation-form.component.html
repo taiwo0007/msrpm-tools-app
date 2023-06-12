@@ -1,5 +1,32 @@
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
+<form class=" md:w-1/2 p-10 mx-auto flex shadow rounded mt-3 flex-col" (ngSubmit)="onSubmit(TranslateForm)" #TranslateForm="ngForm">
+<p class="text-xs text-red-700">When pasting data into here, paste only from the Date line to the reflection line only</p>
+  <mat-form-field class="example-full-width " appearance="outline">
+    <mat-label>English</mat-label>
+    <textarea style=" height: 15rem !important;" ngModel name="englishInput" matInput
+              placeholder="SAT 10 JUNE 2023"></textarea>
+  </mat-form-field>
+  <button class="text p-2 w-max ml-auto rounded px-7 bg-blue-700 text-white" type="submit">Translate</button>
+</form>
+<div class="mb-4">
 
-<h1>Hello world</h1>
+
+<div class="p-3 px-10 mx-auto shadow rounded my-3 md:w-1/2  flex w-full  flex-col" *ngIf="translatedTexts.length > 0">
+  <h4 class="text-blue-700  font-bold">English</h4>
+  <app-output-form [isBold]="false" [language]="'english'" [translatedTexts]="translateObj.q"></app-output-form>
+</div>
+<div class="p-3 px-10 mx-auto shadow-lg my-3  rounded md:w-1/2  flex w-full  flex-col" *ngIf="translatedTexts.length > 0">
+  <h4 class=" text-blue-700 font-bold">English Bold</h4>
+  <app-output-form [isBold]="true" [language]="'english'" [translatedTexts]="translateObj.q"></app-output-form>
+</div>
+<!--French Bold output Output -->
+<div class="p-3 px-10 mx-auto shadow rounded my-3  md:w-1/2  flex w-full  flex-col" *ngIf="translatedTexts.length > 0">
+  <h4 class="text-blue-700  w-max font-bold">French</h4>
+  <app-output-form [isBold]="false" [language]="'french'" [translatedTexts]="translatedTexts"></app-output-form>
+</div>
+
+<div class="p-3 px-10 shadow rounded my-3 mx-auto md:w-1/2  flex w-full  flex-col" *ngIf="translatedTexts.length > 0">
+  <h4 class="text-blue-700 font-bold">French Bold</h4>
+  <app-output-form [isBold]="true" [language]="'french'" [translatedTexts]="translatedTexts"></app-output-form>
+</div>
+</div>
+
